@@ -27,22 +27,15 @@ class App extends React.Component {
           */
         handlerChange(id) {
             console.log("Changed check-box", id)
-            this.setState(prevState => {
-                const updatedToDos = prevState.todos.map(todo => {
-                    if (todo.id === id) {
-                        todo.completed = !todo.completed
-                        console.log(todo.completed)
-                        console.log(todo.id)
-                    }
-
-                    return todo
-                        //console.log(updatedToDos);
-                })
-                return {
-                    todos: updatedToDos
+            const updatedToDos = this.state.todos.map(todo => {
+                if (todo.id === id) {
+                    todo.completed = !todo.completed
+                        //  console.log(todo.completed)
+                        // console.log(todo.id)
                 }
-            })
-
+                return todo;
+            });
+            this.setState({ todos: updatedToDos });
         }
 
         render() {
@@ -50,7 +43,7 @@ class App extends React.Component {
                 item = { item }
                 handlerChange = { this.handlerChange }
                 /> )
-                // console.log("In render"); console.log(toDoItems);
+                console.log("In render"); console.log(toDoItems);
                 return ( <
                     div > { toDoItems } <
                     /div>
@@ -59,7 +52,6 @@ class App extends React.Component {
         }
 
         export default App;
-
         /*        
                   <div >
                           <
